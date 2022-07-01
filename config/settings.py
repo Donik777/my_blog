@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u!8mzq)_8!lq1e2mly(ly*0ybqr4rfrt&_*)xnw_drf4qfy16i'
+SECRET_KEY = 'django-insecure-&d+^sk52zud7fx-gl0y8#r%vss!n_$xiz4ym#n+rph*tthcf*^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,6 +25,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'ckeditor',
+
+    'blogs',
+    'works',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +74,8 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Qwerty123$',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3306',
+
     }
 }
 
@@ -109,9 +116,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
-STATICFILES_DIRS = BASE_DIR / 'assets'
+STATICFILES_DIRS = BASE_DIR / 'assets',
 
 MEDIA_URL = 'media/'
 
@@ -121,3 +128,16 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        # 'height': 300,
+        # 'width': 300,
+    },
+}
